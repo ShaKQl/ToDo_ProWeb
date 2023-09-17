@@ -15,7 +15,7 @@
             <button @click="header = true, search=''" class="header__back">
                 <img src="../assets/img/back.svg" alt="">
             </button>
-            <input v-model="search" type="text" class="header__input container" placeholder="Поиск...">
+            <input v-model="search" type="text" class="header__input container" :placeholder="words.appbarseacrch[lang]">
             <button @click="search=''" class="header__clear">
                 <img src="../assets/img/close.svg" alt="">
             </button>
@@ -24,31 +24,61 @@
     </header>
 </template>
 
+
+
+
+
 <script>
 export default {
     props: {
         lang: String
     },
+
+
     data(){
         return {
             header: true,
             search: ''
         }
     },
+
     methods: {
         changeLang(){
             let val = this.lang == 'ru' ? 'uz' : 'ru';
             this.$emit('changeLang', val)
         }
     },
+
     watch: {
         search(val){
             this.$emit('getSearch', val)
         }
     },
+
     inject: ['words']
 }
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <style lang="scss">
 .header-enter-active,

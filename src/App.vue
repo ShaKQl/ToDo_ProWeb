@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header @getSearch="search = $event" :lang="lang" @changeLang="changeLang"/>
-    <Notes :notes="filterNotes" @delNote="delNote" @changeNote="changeNote" />
+    <Notes :notes="filterNotes" @delNote="delNote" @changeNote="changeNote" :lang="lang" />
     <Modal v-show="modalOpen" 
     @closeModal="closeModal" 
     :currentId="currentId" 
@@ -9,6 +9,7 @@
     :edit="edit"
     :editNote="editNote"
     @editedNote="editedNote"
+    :lang="lang"
     />
     <AddButton @openModal="openModal" />
   </div>
@@ -31,6 +32,8 @@ export default {
     Modal,
     AddButton
   },
+  
+  
   data() {
     return {
       notes: [
@@ -62,6 +65,9 @@ export default {
       langwords: {}
     }
   },
+  
+  
+  
   computed: {
     filterNotes(){
       const items = this.notes.filter((elem)=>{
@@ -71,6 +77,14 @@ export default {
       return items;
     }
   },
+  
+  
+  
+  
+  
+  
+  
+  
   methods: {
     openModal() {
       this.modalOpen = true;

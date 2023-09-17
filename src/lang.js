@@ -55,8 +55,8 @@ const lang = {
 
 export default lang
 
-export let vasya = { name: 'Вася', age: 15}
-export let petya = { name: 'Петя', age: 25}
+// export let vasya = { name: 'Вася', age: 15}
+// export let petya = { name: 'Петя', age: 25}
 
 
 
